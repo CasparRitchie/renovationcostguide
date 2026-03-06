@@ -1,8 +1,35 @@
+import loftConversionBathroom from "../assets/images/loft-conversion-bathroom.jpeg";
+import loftConversionMain from "../assets/images/loft-conversion-main.jpeg";
+import loftKitchenRoom from "../assets/images/loft-kitchen-room.jpeg";
+import plasteringWorker from "../assets/images/plastering-worker.jpeg";
+import sprayPaintingWalls from "../assets/images/spray-painting-walls.jpeg";
+import kitchenRenovationMain from "../assets/images/kitchen-renovation-main.jpeg";
+import kitchenMain1 from "../assets/images/kitchen-main-1.jpeg";
+import kitchenMain2 from "../assets/images/kitchen-main-2.jpeg";
+import gardenCabinMain from "../assets/images/garden-cabin-main.jpeg";
+import gardenRoomPremium from "../assets/images/garden-room-premium.jpeg";
+
 export const PROJECTS = {
   "kitchen-renovation": {
     name: "Kitchen Renovation",
     intro:
       "Kitchen renovation costs vary depending on layout changes, cabinetry quality, appliances, labour and finish level.",
+    heroImage: kitchenRenovationMain,
+    heroImageAlt: "Modern kitchen renovation with fitted units and worktops",
+    galleryImages: [
+      {
+        src: kitchenMain1,
+        alt: "Kitchen interior with fitted cabinetry and island"
+      },
+      {
+        src: kitchenMain2,
+        alt: "Contemporary kitchen with modern finishes"
+      },
+      {
+        src: sprayPaintingWalls,
+        alt: "Tradesperson spray painting walls during interior renovation"
+      }
+    ],
     low: 8000,
     mid: 18000,
     high: 30000,
@@ -21,6 +48,22 @@ export const PROJECTS = {
     name: "Loft Conversion",
     intro:
       "Loft conversion costs depend on roof structure, staircase requirements, dormer work, insulation, plastering and the final specification.",
+      heroImage: loftConversionMain,
+      heroImageAlt: "Finished loft conversion interior with sloped ceiling and natural light",
+      galleryImages: [
+        {
+          src: loftConversionBathroom,
+          alt: "Loft conversion bathroom with shower and modern finish"
+        },
+        {
+          src: loftKitchenRoom,
+          alt: "Loft room with kitchen area showing finished conversion potential"
+        },
+        {
+          src: plasteringWorker,
+          alt: "Worker plastering interior walls during renovation"
+        }
+      ],
     low: 25000,
     mid: 45000,
     high: 70000,
@@ -112,6 +155,14 @@ export const PROJECTS = {
     name: "Garden Room",
     intro:
       "Garden room costs depend on size, insulation, foundations, electrical work, glazing quality and intended year-round use.",
+    heroImage: gardenCabinMain,
+    heroImageAlt: "Garden cabin or garden room exterior in landscaped garden",
+    galleryImages: [
+      {
+        src: gardenRoomPremium,
+        alt: "Premium garden room with large glazing and modern finish"
+      }
+    ],
     low: 10000,
     mid: 22000,
     high: 45000,

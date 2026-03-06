@@ -120,6 +120,20 @@ const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd];
         </div>
       </section>
 
+      {isPillarPage && project.heroImage && (
+        <section className="section" style={{ paddingTop: "16px", paddingBottom: "0" }}>
+          <div className="container">
+            <div className="page-image-wrap">
+              <img
+                src={project.heroImage}
+                alt={project.heroImageAlt || `${project.name} example`}
+                className="page-hero-image"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
@@ -303,6 +317,29 @@ const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd];
           </div>
         </div>
       </section>
+
+      {isPillarPage && project.galleryImages?.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="section-heading">
+              <p className="section-kicker">Project examples</p>
+              <h2>{project.name} inspiration and typical work examples</h2>
+            </div>
+
+            <div className="image-grid">
+              {project.galleryImages.map((image) => (
+                <div className="image-card" key={image.src}>
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="content-image"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container">
