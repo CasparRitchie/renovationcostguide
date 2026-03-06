@@ -469,3 +469,8 @@ textarea:focus {
     max-width: none;
   }
 }
+
+
+.single-column-grid {
+  grid-template-columns: 1fr;
+}
