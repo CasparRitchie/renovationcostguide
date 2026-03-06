@@ -24,6 +24,42 @@ export const PROJECTS = {
     low: 25000,
     mid: 45000,
     high: 70000,
+    costPerM2: "£1,500 – £2,500 per m²",
+    costFactors: [
+      "Roof structure and whether structural steel is needed",
+      "Type of loft conversion, such as rooflight, dormer or hip-to-gable",
+      "Staircase design and how easily it fits into the existing layout",
+      "Insulation, plastering and fire regulation upgrades",
+      "Whether you add a bathroom or ensuite"
+    ],
+    projectTypes: [
+      {
+        title: "Rooflight loft conversion",
+        text:
+          "Usually the cheapest loft conversion type because it keeps the roof shape largely unchanged and focuses on internal conversion."
+      },
+      {
+        title: "Dormer loft conversion",
+        text:
+          "A popular mid-range option that creates more headroom and floor space, but usually costs more because of the extra structural and external work."
+      },
+      {
+        title: "Hip-to-gable loft conversion",
+        text:
+          "Typically more expensive than a rooflight conversion because it alters the roof structure more significantly to create usable space."
+      }
+    ],
+    priceRisks: [
+      "Complex roof geometry can increase structural costs",
+      "Adding an ensuite often raises plumbing, drainage and finishing costs",
+      "Older properties may require extra strengthening or remedial work",
+      "Access issues can increase labour time and scaffold costs"
+    ],
+    planningNotes: [
+      "Many loft conversions fall under permitted development, but not all do.",
+      "Dormers, roof shape changes and properties in conservation areas may involve stricter rules.",
+      "Building regulations approval is usually required, especially for structure, fire safety, stairs and insulation."
+    ],
     faqs: [
       {
         q: "How much does a loft conversion cost in the UK?",
@@ -35,6 +71,7 @@ export const PROJECTS = {
       }
     ]
   },
+
   "house-extension": {
     name: "House Extension",
     intro:

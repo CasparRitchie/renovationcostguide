@@ -489,3 +489,14 @@ textarea:focus {
 .breadcrumb a:hover {
   text-decoration: underline;
 }
+
+.content-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.content-list li + li {
+  margin-top: 10px;
+}

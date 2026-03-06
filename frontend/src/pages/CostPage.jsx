@@ -7,6 +7,7 @@ export default function CostPage() {
 
   const project = PROJECTS[projectSlug];
   const city = citySlug ? CITIES[citySlug] : null;
+  const isPillarPage = !city;
 
   if (!project) {
     return (
@@ -182,6 +183,93 @@ const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd];
           </div>
         </div>
       </section>
+
+      {isPillarPage && (
+        <section className="section section-alt">
+          <div className="container">
+            <div className="section-heading">
+              <p className="section-kicker">Expert guide</p>
+              <h2>{project.name} cost guide in the UK</h2>
+            </div>
+
+            {project.costPerM2 && (
+              <div className="benefit-card" style={{ marginBottom: "24px" }}>
+                <h3>Average cost per m²</h3>
+                <p>{project.costPerM2}</p>
+              </div>
+            )}
+
+            {project.projectTypes?.length > 0 && (
+              <>
+                <div className="section-heading left" style={{ marginBottom: "20px" }}>
+                  <p className="section-kicker">Common project types</p>
+                  <h2>Different ways this project can be delivered</h2>
+                </div>
+
+                <div className="benefits-grid">
+                  {project.projectTypes.map((item) => (
+                    <div className="benefit-card" key={item.title}>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {project.costFactors?.length > 0 && (
+              <>
+                <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                  <p className="section-kicker">Main cost drivers</p>
+                  <h2>What usually affects the final price most</h2>
+                </div>
+
+                <div className="benefit-card">
+                  <ul className="content-list">
+                    {project.costFactors.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+
+            {project.priceRisks?.length > 0 && (
+              <>
+                <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                  <p className="section-kicker">What can push the cost up</p>
+                  <h2>Common budget risks</h2>
+                </div>
+
+                <div className="benefit-card">
+                  <ul className="content-list">
+                    {project.priceRisks.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+
+            {project.planningNotes?.length > 0 && (
+              <>
+                <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                  <p className="section-kicker">Planning and regulations</p>
+                  <h2>Important things to check early</h2>
+                </div>
+
+                <div className="benefit-card">
+                  <ul className="content-list">
+                    {project.planningNotes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="section section-alt">
         <div className="container">
