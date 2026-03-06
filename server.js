@@ -1,16 +1,15 @@
 const express = require("express");
 const path = require("path");
 
+const leadRoutes = require("./routes/lead.routes");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/api/lead", (req, res) => {
-  console.log("New lead received:", req.body);
-  res.status(200).json({ ok: true });
-});
+app.use("/api/lead", leadRoutes);
 
 const distPath = path.join(__dirname, "frontend", "dist");
 app.use(express.static(distPath));

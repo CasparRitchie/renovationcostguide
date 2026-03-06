@@ -11,6 +11,8 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "dropbox": "^10.34.0",
+    "express": "^4.21.2",
+    "resend": "^6.9.3"
   }
 }
