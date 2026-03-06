@@ -14,11 +14,21 @@ export default function CostPage() {
         <div className="container">
           <h1>Page not found</h1>
           <p>We couldn’t find that cost guide.</p>
-          <Link to="/" className="btn btn-primary">Back to home</Link>
+          <Link to="/" className="btn btn-primary">
+            Back to home
+          </Link>
         </div>
       </div>
     );
   }
+
+  const relatedProjects = Object.entries(PROJECTS)
+    .filter(([slug]) => slug !== projectSlug)
+    .slice(0, 4);
+
+  const relatedCities = Object.entries(CITIES)
+    .filter(([slug]) => slug !== citySlug)
+    .slice(0, 4);
 
   const multiplier = city ? city.multiplier : 1;
   const low = Math.round(project.low * multiplier);
@@ -58,15 +68,21 @@ export default function CostPage() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <p className="hero-kicker">Renovation cost guide</p>
-            <h1>{project.name} Cost{locationText}</h1>
+            <h1>
+              {project.name} Cost{locationText}
+            </h1>
             <p className="hero-text">
               {project.intro} This guide gives a practical planning range for homeowners
               researching likely project budgets{locationText.toLowerCase()}.
             </p>
 
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#quote-form">Get Quotes</a>
-              <Link className="btn btn-secondary" to="/">Back to home</Link>
+              <a className="btn btn-primary" href="#quote-form">
+                Get Quotes
+              </a>
+              <Link className="btn btn-secondary" to="/">
+                Back to home
+              </Link>
             </div>
           </div>
 
@@ -90,7 +106,9 @@ export default function CostPage() {
         <div className="container">
           <div className="section-heading">
             <p className="section-kicker">Typical cost range</p>
-            <h2>What does a {project.name.toLowerCase()} usually cost{locationText.toLowerCase()}?</h2>
+            <h2>
+              What does a {project.name.toLowerCase()} usually cost{locationText.toLowerCase()}?
+            </h2>
           </div>
 
           <div className="benefits-grid">
@@ -162,6 +180,61 @@ export default function CostPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-heading">
+            <p className="section-kicker">Related guides</p>
+            <h2>Explore more renovation cost pages</h2>
+          </div>
+
+          <div className="benefits-grid">
+            {relatedProjects.map(([slug, item]) => (
+              <div className="benefit-card" key={slug}>
+                <h3>
+                  {item.name} Cost{city ? ` in ${city.name}` : ""}
+                </h3>
+                <p>
+                  View our guide to typical {item.name.toLowerCase()} pricing
+                  {city ? ` in ${city.name}` : " in the UK"}.
+                </p>
+                <Link
+                  className="btn btn-secondary"
+                  to={`/cost/${slug}${city ? `/${citySlug}` : ""}`}
+                >
+                  View guide
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {city && (
+            <>
+              <div className="section-heading" style={{ marginTop: "36px" }}>
+                <p className="section-kicker">Other locations</p>
+                <h2>{project.name} cost in other cities</h2>
+              </div>
+
+              <div className="benefits-grid">
+                {relatedCities.map(([slug, item]) => (
+                  <div className="benefit-card" key={slug}>
+                    <h3>{project.name} Cost in {item.name}</h3>
+                    <p>
+                      Compare typical {project.name.toLowerCase()} pricing in {item.name}.
+                    </p>
+                    <Link
+                      className="btn btn-secondary"
+                      to={`/cost/${projectSlug}/${slug}`}
+                    >
+                      View guide
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
 
