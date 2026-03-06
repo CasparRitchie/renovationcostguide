@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
 const PROJECT_BASE_COSTS = {
   loft: 40000,
@@ -152,7 +153,9 @@ export default function App() {
             <h1>Estimate renovation costs before you commit.</h1>
             <p className="hero-text">
               Use our free UK renovation cost calculator to get quick planning
-              estimates for loft conversions, house extensions, garden rooms and
+              estimates for{" "}
+              <Link to="/cost/loft-conversion">loft conversions</Link>,{" "}
+              <Link to="/cost/house-extension">house extensions</Link>, garden rooms and
               kitchen renovations.
             </p>
 
@@ -291,6 +294,67 @@ export default function App() {
           </div>
         </div>
       </section>
+
+
+      <section id="guides" className="section">
+          <div className="container">
+          <div className="section-heading">
+            <p className="section-kicker">Popular guides</p>
+            <h2>Explore renovation cost guides</h2>
+          </div>
+
+          <div className="benefits-grid">
+            <div className="benefit-card">
+              <h3>Loft Conversion Cost</h3>
+              <p>See typical loft conversion costs in the UK and compare common budget ranges.</p>
+              <Link className="btn btn-secondary" to="/cost/loft-conversion">
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>House Extension Cost</h3>
+              <p>Understand likely extension costs based on project size, complexity and finish.</p>
+              <Link className="btn btn-secondary" to="/cost/house-extension">
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>Kitchen Renovation Cost</h3>
+              <p>Compare kitchen renovation budgets for different sizes and specification levels.</p>
+              <Link className="btn btn-secondary" to="/cost/kitchen-renovation">
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>Garden Room Cost</h3>
+              <p>Estimate the cost of a garden room for office, studio or year-round use.</p>
+              <Link className="btn btn-secondary" to="/cost/garden-room">
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>Bathroom Renovation Cost</h3>
+              <p>See realistic bathroom renovation budget ranges for typical UK projects.</p>
+              <Link className="btn btn-secondary" to="/cost/bathroom-renovation">
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>Garage Conversion Cost</h3>
+              <p>Compare garage conversion costs and the main factors that affect the final price.</p>
+              <Link className="btn btn-secondary" to="/cost/garage-conversion">
+                View guide
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <section id="why-us" className="section">
         <div className="container">

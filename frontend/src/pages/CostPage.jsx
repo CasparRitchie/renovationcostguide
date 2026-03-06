@@ -55,14 +55,69 @@ export default function CostPage() {
     }))
   };
 
+  const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.renovationcostguide.co.uk/"
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Cost Guides",
+      item: "https://www.renovationcostguide.co.uk/#guides"
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: `${project.name} Cost`,
+      item: `https://www.renovationcostguide.co.uk/cost/${projectSlug}`
+    },
+    ...(city
+      ? [
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: `${project.name} Cost in ${city.name}`,
+            item: canonical
+          }
+        ]
+      : [])
+  ]
+};
+
+const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd];
+
   return (
     <>
       <SeoHead
         title={pageTitle}
         description={metaDescription}
         canonical={canonical}
-        jsonLd={faqJsonLd}
+        jsonLd={combinedJsonLd}
       />
+
+      <section className="section" style={{ paddingBottom: "0" }}>
+        <div className="container">
+          <p className="breadcrumb">
+            <Link to="/">Home</Link>
+            <span> / </span>
+            <a href="/#guides">Cost Guides</a>
+            <span> / </span>
+            <Link to={`/cost/${projectSlug}`}>{project.name} Cost</Link>
+            {city && (
+              <>
+                <span> / </span>
+                <span>{city.name}</span>
+              </>
+            )}
+          </p>
+        </div>
+      </section>
 
       <section className="hero">
         <div className="container hero-grid">
@@ -253,9 +308,9 @@ export default function CostPage() {
               Looking for real quotes for your {project.name.toLowerCase()}
               {city ? ` in ${city.name}` : ""}?
             </p>
-            <Link to="/#quotes" className="btn btn-primary submit-btn">
+            <a href="/#quotes" className="btn btn-primary submit-btn">
               Go to quote form
-            </Link>
+            </a>
           </div>
         </div>
       </section>

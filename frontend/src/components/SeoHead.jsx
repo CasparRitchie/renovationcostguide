@@ -25,22 +25,27 @@ export default function SeoHead({
     }
     link.setAttribute("href", canonical);
 
-    let script = document.getElementById("jsonld-seo");
-    if (script) {
-      script.remove();
-    }
+    document
+      .querySelectorAll('script[data-seo-jsonld="true"]')
+      .forEach((el) => el.remove());
 
     if (jsonLd) {
-      script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.id = "jsonld-seo";
-      script.text = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
+      const items = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+
+      items.forEach((item, index) => {
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.setAttribute("data-seo-jsonld", "true");
+        script.id = `jsonld-seo-${index}`;
+        script.text = JSON.stringify(item);
+        document.head.appendChild(script);
+      });
     }
 
     return () => {
-      const oldScript = document.getElementById("jsonld-seo");
-      if (oldScript) oldScript.remove();
+      document
+        .querySelectorAll('script[data-seo-jsonld="true"]')
+        .forEach((el) => el.remove());
     };
   }, [title, description, canonical, jsonLd]);
 
