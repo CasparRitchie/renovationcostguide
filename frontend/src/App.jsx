@@ -3,6 +3,7 @@ import { calculateEstimate } from "./utils/estimate";
 import HomeHero from "./components/home/HomeHero";
 import ProjectCategories from "./components/home/ProjectCategories";
 import CalculatorSection from "./components/home/CalculatorSection";
+import CostBreakdown from "./components/home/CostBreakdown";
 import ExpertIntro from "./components/home/ExpertIntro";
 import PopularGuides from "./components/home/PopularGuides";
 import WhyUseUs from "./components/home/WhyUseUs";
@@ -96,7 +97,9 @@ export default function App() {
       </header>
 
       <HomeHero estimate={estimate} />
+
       <ProjectCategories onChooseProject={chooseProject} />
+
       <CalculatorSection
         projectType={projectType}
         setProjectType={setProjectType}
@@ -106,9 +109,15 @@ export default function App() {
         setFinish={setFinish}
         estimate={estimate}
       />
+
+      <CostBreakdown />
+
       <ExpertIntro />
+
       <PopularGuides />
+
       <WhyUseUs />
+
       <QuoteSection
         lead={lead}
         setLead={setLead}
