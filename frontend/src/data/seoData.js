@@ -1,13 +1,23 @@
+import extension1 from "../assets/images/extension1.png";
+import extension2 from "../assets/images/extension2.png";
+import gardenCabinMain from "../assets/images/garden-cabin-main.jpeg";
+import gardenRoomPremium from "../assets/images/garden-room-premium.jpeg";
+import gardenpodDark from "../assets/images/gardenpod-dark.png";
+import gardenpodFuturistic from "../assets/images/gardenpod-futuristic.png";
+import gardenroomGreen from "../assets/images/gardenroom-green.png";
+import gardenroomPortrait from "../assets/images/gardenroom-portrait.png";
+import kitchenHero from "../assets/images/kitchen-hero.png";
+import kitchenMain1 from "../assets/images/kitchen-main-1.jpeg";
+import kitchenMain2 from "../assets/images/kitchen-main-2.jpeg";
+import kitchenRenovationMain from "../assets/images/kitchen-renovation-main.jpeg";
+import loftAfter from "../assets/images/loft-after.png";
+import loftBefore from "../assets/images/loft-before.png";
 import loftConversionBathroom from "../assets/images/loft-conversion-bathroom.jpeg";
 import loftConversionMain from "../assets/images/loft-conversion-main.jpeg";
+import loftConversionPremium from "../assets/images/loft-conversion-premium.jpeg";
 import loftKitchenRoom from "../assets/images/loft-kitchen-room.jpeg";
 import plasteringWorker from "../assets/images/plastering-worker.jpeg";
 import sprayPaintingWalls from "../assets/images/spray-painting-walls.jpeg";
-import kitchenRenovationMain from "../assets/images/kitchen-renovation-main.jpeg";
-import kitchenMain1 from "../assets/images/kitchen-main-1.jpeg";
-import kitchenMain2 from "../assets/images/kitchen-main-2.jpeg";
-import gardenCabinMain from "../assets/images/garden-cabin-main.jpeg";
-import gardenRoomPremium from "../assets/images/garden-room-premium.jpeg";
 
 export const PROJECTS = {
   "kitchen-renovation": {
@@ -24,6 +34,10 @@ export const PROJECTS = {
       {
         src: kitchenMain2,
         alt: "Contemporary kitchen with modern finishes"
+      },
+      {
+        src: kitchenHero,
+        alt: "Bright premium kitchen with island and pendant lighting"
       },
       {
         src: sprayPaintingWalls,
@@ -44,26 +58,43 @@ export const PROJECTS = {
       }
     ]
   },
+
   "loft-conversion": {
     name: "Loft Conversion",
     intro:
       "Loft conversion costs depend on roof structure, staircase requirements, dormer work, insulation, plastering and the final specification.",
-      heroImage: loftConversionMain,
-      heroImageAlt: "Finished loft conversion interior with sloped ceiling and natural light",
-      galleryImages: [
-        {
-          src: loftConversionBathroom,
-          alt: "Loft conversion bathroom with shower and modern finish"
-        },
-        {
-          src: loftKitchenRoom,
-          alt: "Loft room with kitchen area showing finished conversion potential"
-        },
-        {
-          src: plasteringWorker,
-          alt: "Worker plastering interior walls during renovation"
-        }
-      ],
+    heroImage: loftConversionMain,
+    heroImageAlt: "Finished loft conversion interior with sloped ceiling and natural light",
+    galleryImages: [
+      {
+        src: loftConversionBathroom,
+        alt: "Loft conversion bathroom with shower and modern finish"
+      },
+      {
+        src: loftKitchenRoom,
+        alt: "Loft room with kitchen area showing finished conversion potential"
+      },
+      {
+        src: loftConversionPremium,
+        alt: "Premium finished loft conversion interior"
+      },
+      {
+        src: plasteringWorker,
+        alt: "Worker plastering interior walls during renovation"
+      }
+    ],
+    beforeAfterImages: [
+      {
+        src: loftBefore,
+        alt: "Unfinished loft space before conversion with exposed rafters and rooflight",
+        label: "Before"
+      },
+      {
+        src: loftAfter,
+        alt: "Finished loft conversion bedroom with skylights and fitted storage",
+        label: "After"
+      }
+    ],
     low: 25000,
     mid: 45000,
     high: 70000,
@@ -119,6 +150,22 @@ export const PROJECTS = {
     name: "House Extension",
     intro:
       "House extension costs vary based on size, foundations, structure, glazing, roof type, internal fit-out and your location.",
+    heroImage: extension2,
+    heroImageAlt: "Large premium rear extension with wide folding doors and active building work",
+    galleryImages: [
+      {
+        src: extension1,
+        alt: "House extension under construction on a bright summer day"
+      },
+      {
+        src: plasteringWorker,
+        alt: "Tradesperson plastering interior walls during extension works"
+      },
+      {
+        src: sprayPaintingWalls,
+        alt: "Tradesperson spray painting newly finished interior walls"
+      }
+    ],
     low: 30000,
     mid: 65000,
     high: 120000,
@@ -133,10 +180,19 @@ export const PROJECTS = {
       }
     ]
   },
+
   "bathroom-renovation": {
     name: "Bathroom Renovation",
     intro:
       "Bathroom renovation costs depend on tiling, sanitaryware, plumbing changes, waterproofing, labour and the level of finish.",
+    heroImage: loftConversionBathroom,
+    heroImageAlt: "Modern bathroom renovation with shower and fitted finishes",
+    galleryImages: [
+      {
+        src: plasteringWorker,
+        alt: "Tradesperson finishing interior walls during bathroom renovation works"
+      }
+    ],
     low: 5000,
     mid: 12000,
     high: 25000,
@@ -151,6 +207,7 @@ export const PROJECTS = {
       }
     ]
   },
+
   "garden-room": {
     name: "Garden Room",
     intro:
@@ -161,6 +218,22 @@ export const PROJECTS = {
       {
         src: gardenRoomPremium,
         alt: "Premium garden room with large glazing and modern finish"
+      },
+      {
+        src: gardenpodDark,
+        alt: "Dark contemporary garden room with lounge area and deck"
+      },
+      {
+        src: gardenpodFuturistic,
+        alt: "Futuristic garden pod with curved design and glazed front"
+      },
+      {
+        src: gardenroomGreen,
+        alt: "Green traditional garden room with patio and landscaped planting"
+      },
+      {
+        src: gardenroomPortrait,
+        alt: "Modern cedar garden office in a landscaped garden"
       }
     ],
     low: 10000,
@@ -177,10 +250,19 @@ export const PROJECTS = {
       }
     ]
   },
+
   "garage-conversion": {
     name: "Garage Conversion",
     intro:
       "Garage conversion costs depend on insulation, flooring, windows, doors, services and how much structural adjustment is needed.",
+    heroImage: plasteringWorker,
+    heroImageAlt: "Tradesperson working on wall finishes during a garage conversion or interior renovation",
+    galleryImages: [
+      {
+        src: sprayPaintingWalls,
+        alt: "Interior finishing works during conversion or renovation"
+      }
+    ],
     low: 9000,
     mid: 18000,
     high: 35000,
@@ -195,6 +277,34 @@ export const PROJECTS = {
       }
     ]
   },
+
+  "basement-conversion": {
+    name: "Basement Conversion",
+    intro:
+      "Basement conversion costs depend on excavation requirements, waterproofing, structural work, ventilation, drainage and final fit-out.",
+    heroImage: plasteringWorker,
+    heroImageAlt: "Interior construction work during basement conversion or renovation",
+    galleryImages: [
+      {
+        src: sprayPaintingWalls,
+        alt: "Interior finishing work in a newly renovated space"
+      }
+    ],
+    low: 40000,
+    mid: 85000,
+    high: 160000,
+    faqs: [
+      {
+        q: "How much does a basement conversion cost in the UK?",
+        a: "A basement conversion in the UK often costs between £40,000 and £160,000 depending on excavation needs, waterproofing and structural complexity."
+      },
+      {
+        q: "Why are basement conversions often expensive?",
+        a: "Basement projects often involve structural work, waterproofing, drainage, access constraints and more specialist labour than above-ground renovations."
+      }
+    ]
+  },
+
   "roof-replacement": {
     name: "Roof Replacement",
     intro:
@@ -213,6 +323,7 @@ export const PROJECTS = {
       }
     ]
   },
+
   "window-replacement": {
     name: "Window Replacement",
     intro:
@@ -231,25 +342,8 @@ export const PROJECTS = {
       }
     ]
   },
-  "solar-panel-installation": {
-    name: "Solar Panel Installation",
-    intro:
-      "Solar panel installation costs depend on roof size, system capacity, inverter choice, battery storage and installation complexity.",
-    low: 5000,
-    mid: 9000,
-    high: 18000,
-    faqs: [
-      {
-        q: "How much does solar panel installation cost in the UK?",
-        a: "Solar panel installation in the UK often costs between £5,000 and £18,000 depending on system size and whether battery storage is included."
-      },
-      {
-        q: "Do batteries make solar more expensive?",
-        a: "Yes. Battery storage usually adds noticeably to the total system cost."
-      }
-    ]
-  },
-  "house-rewiring": {
+
+  "rewiring-house": {
     name: "House Rewiring",
     intro:
       "House rewiring costs vary depending on property size, ease of access, finishing work and whether the home is occupied during the works.",
@@ -279,7 +373,28 @@ export const CITIES = {
   sheffield: { name: "Sheffield", multiplier: 0.98 },
   newcastle: { name: "Newcastle", multiplier: 0.97 },
   nottingham: { name: "Nottingham", multiplier: 0.99 },
-  leicester: { name: "Leicester", multiplier: 0.99 }
+  oxford: { name: "Oxford", multiplier: 1.12 }
+};
+
+export const HOME_IMAGES = {
+  hero: {
+    src: kitchenHero,
+    alt: "Modern renovated kitchen with island and bright natural light"
+  },
+  featureStrip: [
+    {
+      src: extension2,
+      alt: "Large premium house extension with folding doors and bright interior"
+    },
+    {
+      src: loftAfter,
+      alt: "Finished loft conversion bedroom with skylights and fitted storage"
+    },
+    {
+      src: gardenpodFuturistic,
+      alt: "Futuristic garden pod in a landscaped garden"
+    }
+  ]
 };
 
 export function formatGBP(value) {

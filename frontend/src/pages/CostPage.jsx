@@ -57,41 +57,41 @@ export default function CostPage() {
   };
 
   const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://www.renovationcostguide.co.uk/"
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Cost Guides",
-      item: "https://www.renovationcostguide.co.uk/#guides"
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: `${project.name} Cost`,
-      item: `https://www.renovationcostguide.co.uk/cost/${projectSlug}`
-    },
-    ...(city
-      ? [
-          {
-            "@type": "ListItem",
-            position: 4,
-            name: `${project.name} Cost in ${city.name}`,
-            item: canonical
-          }
-        ]
-      : [])
-  ]
-};
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.renovationcostguide.co.uk/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Cost Guides",
+        item: "https://www.renovationcostguide.co.uk/#guides"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `${project.name} Cost`,
+        item: `https://www.renovationcostguide.co.uk/cost/${projectSlug}`
+      },
+      ...(city
+        ? [
+            {
+              "@type": "ListItem",
+              position: 4,
+              name: `${project.name} Cost in ${city.name}`,
+              item: canonical
+            }
+          ]
+        : [])
+    ]
+  };
 
-const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd];
+  const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd];
 
   return (
     <>
@@ -340,6 +340,8 @@ const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd];
           </div>
         </section>
       )}
+
+
 
       <section className="section">
         <div className="container">
