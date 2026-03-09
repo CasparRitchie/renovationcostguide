@@ -166,6 +166,47 @@ export default function RenovationCostGuide() {
               </Link>
             </div>
 
+            <div className="benefit-card">
+              <h3>Renovation Cost per m²</h3>
+              <p>
+                Understand average renovation cost per square metre in the UK and
+                how budgets change depending on project scope and finish.
+              </p>
+              <Link
+                to="/cost-per-m2-house-renovation-uk"
+                className="btn btn-secondary"
+              >
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>Loft Conversion Cost Guide</h3>
+              <p>
+                Compare rooflight, dormer and hip-to-gable loft conversion costs in the UK.
+              </p>
+              <Link
+                to="/how-much-does-a-loft-conversion-cost-uk"
+                className="btn btn-secondary"
+              >
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>House Extension Cost Guide</h3>
+              <p>
+                Learn typical UK house extension budgets including rear, side return and
+                double-storey extensions.
+              </p>
+              <Link
+                to="/how-much-does-a-house-extension-cost-uk"
+                className="btn btn-secondary"
+              >
+                View guide
+              </Link>
+            </div>
+
           </div>
 
         </div>
