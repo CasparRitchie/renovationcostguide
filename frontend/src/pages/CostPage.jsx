@@ -624,23 +624,38 @@ export default function CostPage() {
 
       <section id="quote-form" className="section section-alt">
         <div className="container form-wrap">
+
           <div className="section-heading left">
-            <p className="section-kicker">Get quotes</p>
-            <h2>Ready to compare quotes?</h2>
+            <p className="section-kicker">Compare renovation quotes</p>
+            <h2>Get quotes from trusted local contractors</h2>
+
             <p className="form-intro">
-              Use the homepage quote form for now while we finish the fuller enquiry flow.
+              Planning a {project.name.toLowerCase()}
+              {city ? ` in ${city.name}` : ""}?
+              Tell us a little about your project and we’ll help you compare quotes
+              from experienced contractors in your area.
             </p>
           </div>
 
           <div className="quote-form">
+
             <p style={{ marginTop: 0 }}>
-              Looking for real quotes for your {project.name.toLowerCase()}
-              {city ? ` in ${city.name}` : ""}?
+              Our service is completely free for homeowners and helps you compare
+              multiple quotes before choosing the right contractor.
             </p>
+
+            <ul className="quote-benefits">
+              <li>✓ Free service for homeowners</li>
+              <li>✓ Compare multiple quotes</li>
+              <li>✓ Local renovation specialists</li>
+            </ul>
+
             <a href="/#quotes" className="btn btn-primary submit-btn">
-              Go to quote form
+              Get renovation quotes
             </a>
+
           </div>
+
         </div>
       </section>
     </>
