@@ -14,10 +14,27 @@ import loftAfter from "../assets/images/loft-after.png";
 import loftBefore from "../assets/images/loft-before.png";
 import loftConversionBathroom from "../assets/images/loft-conversion-bathroom.jpeg";
 import loftConversionMain from "../assets/images/loft-conversion-main.jpeg";
-import loftConversionPremium from "../assets/images/loft-conversion-premium.jpeg";
-import loftKitchenRoom from "../assets/images/loft-kitchen-room.jpeg";
+import loftConversionPremium2 from "../assets/images/loft-conversion-premium2.png";
+import loftConversionPremium3 from "../assets/images/loft-conversion-premium3.png";
 import plasteringWorker from "../assets/images/plastering-worker.jpeg";
 import sprayPaintingWalls from "../assets/images/spray-painting-walls.jpeg";
+import garageConversionBudget from "../assets/images/garage-conversion-budget.png";
+import garageConversionPremium from "../assets/images/garage-conversion-premium.png";
+import garageConversionPremium2 from "../assets/images/garage-conversion-premium2.png";
+import garageConversionPremium3 from "../assets/images/garage-conversion-premium3.png";
+import garageConversionPremium4 from "../assets/images/garage-conversion-premium4.png";
+
+/*
+  Replace these placeholder filenames with the real filenames once saved in src/assets/images
+*/
+// import extensionCottageTraditional from "../assets/images/house-extension-cottage-traditional.png";
+// import extensionTerraced from "../assets/images/house-extension-terraced.png";
+// import extensionSemiDetached from "../assets/images/house-extension-semi-detached.png";
+// import extensionFuturistic from "../assets/images/house-extension-futuristic.png";
+
+// import bathroomPremium from "../assets/images/bathroom-renovation-premium.png";
+// import bathroomMidrangeWood from "../assets/images/bathroom-renovation-midrange-wood.png";
+// import bathroomSlateMetallic from "../assets/images/bathroom-renovation-slate-metallic.png";
 
 export const PROJECTS = {
   "kitchen-renovation": {
@@ -67,20 +84,20 @@ export const PROJECTS = {
     heroImageAlt: "Finished loft conversion interior with sloped ceiling and natural light",
     galleryImages: [
       {
+        src: loftConversionMain,
+        alt: "Finished loft conversion interior with skylights and fitted storage"
+      },
+      {
+        src: loftConversionPremium2,
+        alt: "Premium loft conversion living area with bright natural light"
+      },
+      {
+        src: loftConversionPremium3,
+        alt: "Loft conversion bedroom with neutral decor and roof windows"
+      },
+      {
         src: loftConversionBathroom,
         alt: "Loft conversion bathroom with shower and modern finish"
-      },
-      {
-        src: loftKitchenRoom,
-        alt: "Loft room with kitchen area showing finished conversion potential"
-      },
-      {
-        src: loftConversionPremium,
-        alt: "Premium finished loft conversion interior"
-      },
-      {
-        src: plasteringWorker,
-        alt: "Worker plastering interior walls during renovation"
       }
     ],
     beforeAfterImages: [
@@ -158,13 +175,29 @@ export const PROJECTS = {
         alt: "House extension under construction on a bright summer day"
       },
       {
-        src: plasteringWorker,
-        alt: "Tradesperson plastering interior walls during extension works"
+        src: extension2,
+        alt: "Large premium house extension with folding doors and bright interior"
+      }
+      /*
+      Replace these with your new generated images once saved:
+      ,
+      {
+        src: extensionCottageTraditional,
+        alt: "Traditional countryside cottage with a large characterful extension"
       },
       {
-        src: sprayPaintingWalls,
-        alt: "Tradesperson spray painting newly finished interior walls"
+        src: extensionTerraced,
+        alt: "Rear extension on a Victorian terraced house with modern glazing"
+      },
+      {
+        src: extensionSemiDetached,
+        alt: "Rear extension on a semi-detached house with open-plan kitchen diner"
+      },
+      {
+        src: extensionFuturistic,
+        alt: "Futuristic contemporary house extension with dramatic glazing and lighting"
       }
+      */
     ],
     low: 30000,
     mid: 65000,
@@ -189,9 +222,25 @@ export const PROJECTS = {
     heroImageAlt: "Modern bathroom renovation with shower and fitted finishes",
     galleryImages: [
       {
-        src: plasteringWorker,
-        alt: "Tradesperson finishing interior walls during bathroom renovation works"
+        src: loftConversionBathroom,
+        alt: "Modern bathroom renovation with shower and fitted finishes"
       }
+      /*
+      Replace / extend with your new generated images once saved:
+      ,
+      {
+        src: bathroomPremium,
+        alt: "Premium bathroom renovation with freestanding bath, double vanity and walk-in shower"
+      },
+      {
+        src: bathroomMidrangeWood,
+        alt: "Mid-range bathroom renovation with warm wood finishes and practical layout"
+      },
+      {
+        src: bathroomSlateMetallic,
+        alt: "Bathroom renovation with dark slate tiles and metallic finishes"
+      }
+      */
     ],
     low: 5000,
     mid: 12000,
@@ -255,12 +304,28 @@ export const PROJECTS = {
     name: "Garage Conversion",
     intro:
       "Garage conversion costs depend on insulation, flooring, windows, doors, services and how much structural adjustment is needed.",
-    heroImage: plasteringWorker,
-    heroImageAlt: "Tradesperson working on wall finishes during a garage conversion or interior renovation",
+    heroImage: garageConversionPremium,
+    heroImageAlt: "Premium garage conversion showing how a garage can become a stylish living space",
     galleryImages: [
       {
-        src: sprayPaintingWalls,
-        alt: "Interior finishing works during conversion or renovation"
+        src: garageConversionBudget,
+        alt: "Lower-budget garage conversion with simple bedroom-style layout"
+      },
+      {
+        src: garageConversionPremium,
+        alt: "Premium garage conversion with polished finishes and spacious layout"
+      },
+      {
+        src: garageConversionPremium2,
+        alt: "Mid-range garage conversion with bedroom layout and warm neutral finishes"
+      },
+      {
+        src: garageConversionPremium3,
+        alt: "Premium garage conversion used as a bright home office and studio"
+      },
+      {
+        src: garageConversionPremium4,
+        alt: "Premium garage conversion with bedroom and ensuite-style wash area"
       }
     ],
     low: 9000,
