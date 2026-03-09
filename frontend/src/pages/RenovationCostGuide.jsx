@@ -16,7 +16,7 @@ export default function RenovationCostGuide() {
         description="Learn the average cost to renovate a house in the UK. Compare full house renovation costs, project budgets and typical renovation prices."
         canonical="https://www.renovationcostguide.co.uk/how-much-does-it-cost-to-renovate-a-house-uk"
       />
-      
+
       <Navbar />
 
         <section className="hero">
@@ -270,6 +270,58 @@ export default function RenovationCostGuide() {
 
             </div>
 
+          </div>
+        </section>
+        <section className="section section-alt">
+          <div className="container">
+            <div className="section-heading">
+              <p className="section-kicker">Renovation planning guides</p>
+              <h2>Helpful UK renovation cost guides</h2>
+            </div>
+
+            <div className="benefits-grid">
+              <div className="benefit-card">
+                <h3>Cost Per m² House Renovation UK</h3>
+                <p>
+                  Understand average renovation cost per square metre in the UK
+                  for lighter, mid-range and full renovation projects.
+                </p>
+                <Link
+                  className="btn btn-secondary"
+                  to="/cost-per-m2-house-renovation-uk"
+                >
+                  View guide
+                </Link>
+              </div>
+
+              <div className="benefit-card">
+                <h3>How Much Does a Loft Conversion Cost?</h3>
+                <p>
+                  Compare typical UK loft conversion budgets, including rooflight,
+                  dormer and hip-to-gable projects.
+                </p>
+                <Link
+                  className="btn btn-secondary"
+                  to="/how-much-does-a-loft-conversion-cost-uk"
+                >
+                  View guide
+                </Link>
+              </div>
+
+              <div className="benefit-card">
+                <h3>How Much Does a House Extension Cost?</h3>
+                <p>
+                  See typical UK extension budgets for rear, side return and
+                  double-storey projects.
+                </p>
+                <Link
+                  className="btn btn-secondary"
+                  to="/how-much-does-a-house-extension-cost-uk"
+                >
+                  View guide
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

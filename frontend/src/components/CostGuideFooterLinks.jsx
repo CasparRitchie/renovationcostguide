@@ -10,7 +10,7 @@ export default function CostGuideFooterLinks() {
         >
           <div>
             <p className="section-kicker" style={{ marginBottom: "8px" }}>
-              Cost guide footer links
+              Browse renovation cost guides
             </p>
             <h2 style={{ marginBottom: "8px" }}>
               Explore more renovation cost guides

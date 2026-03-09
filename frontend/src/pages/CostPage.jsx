@@ -290,25 +290,25 @@ export default function CostPage() {
                 </div>
               </>
             )}
-        {cityInfo.scenarios?.length > 0 && (
-        <>
-          <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
-            <p className="section-kicker">Local example scenarios</p>
-            <h2>Example {project.name.toLowerCase()} budgets in {cityInfo.name}</h2>
-          </div>
+            {cityInfo.scenarios?.length > 0 && (
+              <>
+                <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                  <p className="section-kicker">Local example scenarios</p>
+                  <h2>Example {project.name.toLowerCase()} budgets in {cityInfo.name}</h2>
+                </div>
 
-          <div className="benefits-grid">
-            {cityInfo.scenarios.map((scenario) => (
-              <div className="benefit-card" key={scenario.title}>
-                <h3>{scenario.title}</h3>
-                <p><strong>{scenario.propertyType}</strong></p>
-                <p><strong>{scenario.estimate}</strong></p>
-                <p>{scenario.description}</p>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+                <div className="benefits-grid">
+                  {cityInfo.scenarios.map((scenario) => (
+                    <div className="benefit-card" key={scenario.title}>
+                      <h3>{scenario.title}</h3>
+                      <p><strong>{scenario.propertyType}</strong></p>
+                      <p><strong>{scenario.estimate}</strong></p>
+                      <p>{scenario.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </section>
       )}
@@ -564,6 +564,59 @@ export default function CostPage() {
               </div>
             </>
           )}
+        </div>
+      </section>
+
+      <section className="section section-alt">
+        <div className="container">
+          <div className="section-heading">
+            <p className="section-kicker">Renovation planning guides</p>
+            <h2>Helpful UK renovation cost guides</h2>
+          </div>
+
+          <div className="benefits-grid">
+            <div className="benefit-card">
+              <h3>Cost Per m² House Renovation UK</h3>
+              <p>
+                Understand average renovation cost per square metre in the UK
+                for lighter, mid-range and full renovation projects.
+              </p>
+              <Link
+                className="btn btn-secondary"
+                to="/cost-per-m2-house-renovation-uk"
+              >
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>How Much Does a Loft Conversion Cost?</h3>
+              <p>
+                Compare typical UK loft conversion budgets, including rooflight,
+                dormer and hip-to-gable projects.
+              </p>
+              <Link
+                className="btn btn-secondary"
+                to="/how-much-does-a-loft-conversion-cost-uk"
+              >
+                View guide
+              </Link>
+            </div>
+
+            <div className="benefit-card">
+              <h3>How Much Does a House Extension Cost?</h3>
+              <p>
+                See typical UK extension budgets for rear, side return and
+                double-storey projects.
+              </p>
+              <Link
+                className="btn btn-secondary"
+                to="/how-much-does-a-house-extension-cost-uk"
+              >
+                View guide
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
