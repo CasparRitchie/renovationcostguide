@@ -16,6 +16,8 @@ import loftConversionBathroom from "../assets/images/loft-conversion-bathroom.jp
 import loftConversionMain from "../assets/images/loft-conversion-main.jpeg";
 import loftConversionPremium2 from "../assets/images/loft-conversion-premium2.png";
 import loftConversionPremium3 from "../assets/images/loft-conversion-premium3.png";
+import loftConversionGamer from "../assets/images/loft-conversion-gamer.png";
+import loftConversionGamer2 from "../assets/images/loft-conversion-gamer2.png";
 import plasteringWorker from "../assets/images/plastering-worker.jpeg";
 import sprayPaintingWalls from "../assets/images/spray-painting-walls.jpeg";
 import garageConversionBudget from "../assets/images/garage-conversion-budget.png";
@@ -75,7 +77,7 @@ export const PROJECTS = {
     name: "Loft Conversion",
     intro:
       "Loft conversion costs depend on roof structure, staircase requirements, dormer work, insulation, plastering and the final specification.",
-    heroImage: loftConversionMain,
+    heroImage: loftConversionPremium2,
     heroImageAlt: "Finished loft conversion interior with sloped ceiling and natural light",
     galleryImages: [
       {
@@ -93,7 +95,15 @@ export const PROJECTS = {
       {
         src: loftConversionBathroom,
         alt: "Loft conversion bathroom with shower and modern finish"
-      }
+      },
+      {
+        src: loftConversionGamer,
+        alt: "Gamer style loft conversion"
+      },
+      {
+        src: loftConversionGamer2,
+        alt: "Loft conversion for a gamer with neon lights"
+      },
     ],
     beforeAfterImages: [
       {
@@ -212,10 +222,6 @@ export const PROJECTS = {
     heroImage: loftConversionBathroom,
     heroImageAlt: "Modern bathroom renovation with shower and fitted finishes",
     galleryImages: [
-      {
-        src: loftConversionBathroom,
-        alt: "Modern bathroom renovation with shower and fitted finishes"
-      },
       {
         src: bathroomPremium,
         alt: "Premium bathroom renovation with freestanding bath, double vanity and walk-in shower"
