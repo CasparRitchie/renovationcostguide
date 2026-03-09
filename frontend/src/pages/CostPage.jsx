@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import SeoHead from "../components/SeoHead.jsx";
 import { PROJECTS, CITIES, formatGBP } from "../data/seoData.js";
+import { CITY_DATA } from "../data/cityData.js";
 import Navbar from "../components/Navbar.jsx";
 import CostGuideFooterLinks from "../components/CostGuideFooterLinks.jsx";
 
@@ -9,6 +10,7 @@ export default function CostPage() {
 
   const project = PROJECTS[projectSlug];
   const city = citySlug ? CITIES[citySlug] : null;
+  const cityInfo = citySlug ? CITY_DATA[citySlug] : null;
   const isPillarPage = !city;
 
   if (!project) {
@@ -126,6 +128,7 @@ export default function CostPage() {
         </div>
       </section>
 
+
       {isPillarPage && project.heroImage && (
         <section className="section" style={{ paddingTop: "16px", paddingBottom: "0" }}>
           <div className="container">
@@ -203,6 +206,93 @@ export default function CostPage() {
           </div>
         </div>
       </section>
+
+            {cityInfo && (
+              <section className="section section-alt">
+                <div className="container">
+                  <div className="section-heading">
+                    <p className="section-kicker">What makes {cityInfo.name} different?</p>
+                    <h2>{project.name} costs in {cityInfo.name}</h2>
+                  </div>
+
+                  <div className="benefits-grid">
+                    <div className="benefit-card">
+                      <h3>Typical contractor day rates</h3>
+                      <p>{cityInfo.contractorDayRate}</p>
+                    </div>
+
+                    <div className="benefit-card">
+                      <h3>Typical skip / waste cost</h3>
+                      <p>{cityInfo.skipCost}</p>
+                    </div>
+
+                    <div className="benefit-card">
+                      <h3>Labour cost position</h3>
+                      <p>
+                        Costs in {cityInfo.name} are typically adjusted by a labour multiplier of{" "}
+                        <strong>{cityInfo.labourMultiplier}</strong> compared with a standard UK baseline.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                    <p className="section-kicker">Local pricing signals</p>
+                    <h2>Why renovation costs vary in {cityInfo.name}</h2>
+                  </div>
+
+                  <div className="benefits-grid">
+                    <div className="benefit-card">
+                      <h3>Access and logistics</h3>
+                      <p>{cityInfo.accessNotes}</p>
+                    </div>
+
+                    <div className="benefit-card">
+                      <h3>Demand for contractors</h3>
+                      <p>{cityInfo.demandNotes}</p>
+                    </div>
+
+                    <div className="benefit-card">
+                      <h3>Planning context</h3>
+                      <p>{cityInfo.planningNotes}</p>
+                    </div>
+                  </div>
+
+                  {cityInfo.housingStock?.length > 0 && (
+                    <>
+                      <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                        <p className="section-kicker">Housing stock context</p>
+                        <h2>Common property types in {cityInfo.name}</h2>
+                      </div>
+
+                      <div className="benefit-card">
+                        <ul className="content-list">
+                          {cityInfo.housingStock.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
+
+                  {cityInfo.commonConstraints?.length > 0 && (
+                    <>
+                      <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                        <p className="section-kicker">Typical renovation constraints</p>
+                        <h2>Hidden costs and common issues in {cityInfo.name}</h2>
+                      </div>
+
+                      <div className="benefit-card">
+                        <ul className="content-list">
+                          {cityInfo.commonConstraints.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </section>
+            )}
 
       {isPillarPage && (
         <section className="section section-alt">
