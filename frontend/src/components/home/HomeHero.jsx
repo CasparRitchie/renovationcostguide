@@ -7,15 +7,16 @@ export default function HomeHero({ estimate }) {
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="hero-kicker">Planning a home improvement project?</p>
-          <h1>Estimate renovation costs before you commit.</h1>
+          <h1>Estimate renovation costs and compare quotes from local contractors.</h1>
           <p className="hero-text">
-            Use our free UK renovation cost calculator to get quick planning
-            estimates for{" "}
+            Use our free UK renovation cost calculator to estimate budgets for{" "}
             <Link to="/cost/loft-conversion">loft conversions</Link>,{" "}
             <Link to="/cost/house-extension">house extensions</Link>,{" "}
             <Link to="/cost/garden-room">garden rooms</Link> and{" "}
-            <Link to="/cost/kitchen-renovation">kitchen renovations</Link>. You can
-            also read our{" "}
+            <Link to="/cost/kitchen-renovation">kitchen renovations</Link>.
+            {" "}When you&apos;re ready, you can also request quotes from trusted local
+            professionals and compare prices before choosing the right contractor
+            for your project. You can also read our{" "}
             <Link to="/how-much-does-it-cost-to-renovate-a-house-uk">
               full guide to house renovation costs in the UK
             </Link>{" "}
@@ -27,15 +28,15 @@ export default function HomeHero({ estimate }) {
               Calculate Costs
             </a>
             <a className="btn btn-secondary" href="#quotes">
-              Request Quotes
+              Get Quotes
             </a>
           </div>
 
           <div className="hero-points">
-            <span>Loft conversions</span>
-            <span>Extensions</span>
-            <span>Garden rooms</span>
-            <span>Kitchens</span>
+            <span>Estimate renovation costs</span>
+            <span>Read expert guides</span>
+            <span>Compare local quotes</span>
+            <span>Plan with confidence</span>
           </div>
         </div>
 
@@ -47,8 +48,9 @@ export default function HomeHero({ estimate }) {
               {formatGBP(estimate.low)} – {formatGBP(estimate.high)}
             </p>
             <p className="mini-text">
-              Based on your current calculator selection. Adjust project type,
-              size and finish to explore likely budget ranges.
+              Use the calculator to explore likely project costs, then request
+              quotes from local contractors when you&apos;re ready to compare real
+              pricing.
             </p>
           </div>
         </div>
