@@ -14,6 +14,13 @@ export default function HomeHero({ estimate }) {
             <Link to="/cost/loft-conversion">loft conversions</Link>,{" "}
             <Link to="/cost/house-extension">house extensions</Link>, garden rooms and
             kitchen renovations.
+            <Link to="/cost/kitchen-renovation">kitchen renovations</Link>
+
+            {" "}You can also read our{" "}
+            <Link to="/how-much-does-it-cost-to-renovate-a-house-uk">
+              full guide to house renovation costs in the UK
+            </Link>{" "}
+            before planning your project.
           </p>
 
           <div className="hero-actions">
