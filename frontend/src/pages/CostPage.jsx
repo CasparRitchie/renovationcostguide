@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import SeoHead from "../components/SeoHead.jsx";
 import { PROJECTS, CITIES, formatGBP } from "../data/seoData.js";
+import Navbar from "../components/Navbar.jsx";
+import CostGuideFooterLinks from "../components/CostGuideFooterLinks.jsx";
 
 export default function CostPage() {
   const { projectSlug, citySlug } = useParams();
@@ -103,6 +105,8 @@ export default function CostPage() {
         canonical={canonical}
         jsonLd={combinedJsonLd}
       />
+
+      <Navbar />
 
       <section className="section" style={{ paddingBottom: "0" }}>
         <div className="container">
@@ -453,6 +457,8 @@ export default function CostPage() {
           )}
         </div>
       </section>
+
+      <CostGuideFooterLinks />
 
       <section id="quote-form" className="section section-alt">
         <div className="container form-wrap">

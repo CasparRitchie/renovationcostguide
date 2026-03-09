@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import SeoHead from "../components/SeoHead.jsx";
 import { AUTHORITY_PAGES } from "../data/authorityPages.js";
+import Navbar from "../components/Navbar.jsx";
+import CostGuideFooterLinks from "../components/CostGuideFooterLinks.jsx";
 
 export default function AuthorityPage() {
   const { slug } = useParams();
@@ -41,6 +43,8 @@ export default function AuthorityPage() {
         canonical={page.canonical}
         jsonLd={faqJsonLd}
       />
+
+      <Navbar />
 
       <section className="hero">
         <div className="container hero-grid">
@@ -118,6 +122,9 @@ export default function AuthorityPage() {
           </div>
         </div>
       </section>
+
+      <CostGuideFooterLinks />
+
     </>
   );
 }

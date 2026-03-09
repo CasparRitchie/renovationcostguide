@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import SeoHead from "../components/SeoHead.jsx";
 import { formatGBP } from "../data/seoData.js";
+import Navbar from "../components/Navbar.jsx";
+import CostGuideFooterLinks from "../components/CostGuideFooterLinks.jsx";
 
 export default function RenovationCostGuide() {
 
@@ -14,6 +16,8 @@ export default function RenovationCostGuide() {
         description="Learn the average cost to renovate a house in the UK. Compare full house renovation costs, project budgets and typical renovation prices."
         canonical="https://www.renovationcostguide.co.uk/how-much-does-it-cost-to-renovate-a-house-uk"
       />
+      
+      <Navbar />
 
         <section className="hero">
           <div className="container hero-grid">
@@ -269,6 +273,7 @@ export default function RenovationCostGuide() {
           </div>
         </section>
 
+        <CostGuideFooterLinks />
       </>
   );
 }
