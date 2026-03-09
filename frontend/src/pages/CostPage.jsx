@@ -31,6 +31,8 @@ export default function CostPage() {
     .filter(([slug]) => slug !== citySlug)
     .slice(0, 4);
 
+  const featuredCitySlugs = ["london", "manchester", "birmingham", "leeds", "bristol", "oxford"];
+
   const multiplier = city ? city.multiplier : 1;
   const low = Math.round(project.low * multiplier);
   const mid = Math.round(project.mid * multiplier);
@@ -341,7 +343,39 @@ export default function CostPage() {
         </section>
       )}
 
+      {isPillarPage && (
+        <section className="section">
+          <div className="container">
+            <div className="section-heading">
+              <p className="section-kicker">Popular cities</p>
+              <h2>{project.name} cost in major UK cities</h2>
+            </div>
 
+            <div className="benefits-grid">
+              {featuredCitySlugs
+                .filter((slug) => CITIES[slug])
+                .map((slug) => {
+                  const item = CITIES[slug];
+                  return (
+                    <div className="benefit-card" key={slug}>
+                      <h3>{project.name} Cost in {item.name}</h3>
+                      <p>
+                        Compare typical {project.name.toLowerCase()} pricing in {item.name},
+                        with location-adjusted cost ranges.
+                      </p>
+                      <Link
+                        className="btn btn-secondary"
+                        to={`/cost/${projectSlug}/${slug}`}
+                      >
+                        View {item.name} guide
+                      </Link>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container">

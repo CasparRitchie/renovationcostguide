@@ -26,13 +26,20 @@ const projects = [
   "rewiring-house"
 ];
 
+const staticPages = [
+  "/",
+  "/how-much-does-it-cost-to-renovate-a-house-uk"
+];
+
 const urls = [];
 
-urls.push(`
+staticPages.forEach((page) => {
+  urls.push(`
 <url>
-  <loc>https://www.renovationcostguide.co.uk/</loc>
+  <loc>https://www.renovationcostguide.co.uk${page}</loc>
 </url>
 `);
+});
 
 projects.forEach((project) => {
   urls.push(`
