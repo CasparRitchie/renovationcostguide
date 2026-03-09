@@ -9,6 +9,11 @@ import ExpertIntro from "./components/home/ExpertIntro";
 import PopularGuides from "./components/home/PopularGuides";
 import WhyUseUs from "./components/home/WhyUseUs";
 import QuoteSection from "./components/home/QuoteSection";
+import {
+  getProjectTypeLabel,
+  getSizeLabel,
+  getFinishLabel,
+} from "./utils/projectSummary";
 
 export default function App() {
   const [projectType, setProjectType] = useState("loft");
@@ -124,6 +129,13 @@ export default function App() {
         setLead={setLead}
         status={status}
         onSubmit={handleSubmit}
+        projectSummary={{
+          projectType: getProjectTypeLabel(projectType),
+          size: getSizeLabel(size),
+          finish: getFinishLabel(finish),
+          estimateLow: `£${estimate.low.toLocaleString("en-GB")}`,
+          estimateHigh: `£${estimate.high.toLocaleString("en-GB")}`,
+        }}
       />
     </div>
   );

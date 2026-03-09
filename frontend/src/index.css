@@ -545,3 +545,7 @@ textarea:focus {
     height: 220px;
   }
 }
+
+.project-summary-card {
+  margin-bottom: 24px;
+}
