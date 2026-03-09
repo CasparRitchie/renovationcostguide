@@ -23,18 +23,13 @@ import garageConversionPremium from "../assets/images/garage-conversion-premium.
 import garageConversionPremium2 from "../assets/images/garage-conversion-premium2.png";
 import garageConversionPremium3 from "../assets/images/garage-conversion-premium3.png";
 import garageConversionPremium4 from "../assets/images/garage-conversion-premium4.png";
-
-/*
-  Replace these placeholder filenames with the real filenames once saved in src/assets/images
-*/
-// import extensionCottageTraditional from "../assets/images/house-extension-cottage-traditional.png";
-// import extensionTerraced from "../assets/images/house-extension-terraced.png";
-// import extensionSemiDetached from "../assets/images/house-extension-semi-detached.png";
-// import extensionFuturistic from "../assets/images/house-extension-futuristic.png";
-
-// import bathroomPremium from "../assets/images/bathroom-renovation-premium.png";
-// import bathroomMidrangeWood from "../assets/images/bathroom-renovation-midrange-wood.png";
-// import bathroomSlateMetallic from "../assets/images/bathroom-renovation-slate-metallic.png";
+import extensionCottageTraditional from "../assets/images/house-extension-cottage-traditional.png";
+import extensionTerraced from "../assets/images/house-extension-terraced.png";
+import extensionSemiDetached from "../assets/images/house-extension-semi-detached.png";
+import extensionFuturistic from "../assets/images/house-extension-futuristic.png";
+import bathroomPremium from "../assets/images/bathroom-renovation-premium.png";
+import bathroomMidrangeWood from "../assets/images/bathroom-renovation-midrange-wood.png";
+import bathroomSlateMetallic from "../assets/images/bathroom-renovation-slate-metallic.png";
 
 export const PROJECTS = {
   "kitchen-renovation": {
@@ -177,10 +172,7 @@ export const PROJECTS = {
       {
         src: extension2,
         alt: "Large premium house extension with folding doors and bright interior"
-      }
-      /*
-      Replace these with your new generated images once saved:
-      ,
+      },
       {
         src: extensionCottageTraditional,
         alt: "Traditional countryside cottage with a large characterful extension"
@@ -196,8 +188,7 @@ export const PROJECTS = {
       {
         src: extensionFuturistic,
         alt: "Futuristic contemporary house extension with dramatic glazing and lighting"
-      }
-      */
+      },
     ],
     low: 30000,
     mid: 65000,
@@ -224,10 +215,7 @@ export const PROJECTS = {
       {
         src: loftConversionBathroom,
         alt: "Modern bathroom renovation with shower and fitted finishes"
-      }
-      /*
-      Replace / extend with your new generated images once saved:
-      ,
+      },
       {
         src: bathroomPremium,
         alt: "Premium bathroom renovation with freestanding bath, double vanity and walk-in shower"
@@ -239,8 +227,7 @@ export const PROJECTS = {
       {
         src: bathroomSlateMetallic,
         alt: "Bathroom renovation with dark slate tiles and metallic finishes"
-      }
-      */
+      },
     ],
     low: 5000,
     mid: 12000,
