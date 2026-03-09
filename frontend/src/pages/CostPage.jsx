@@ -207,92 +207,111 @@ export default function CostPage() {
         </div>
       </section>
 
-            {cityInfo && (
-              <section className="section section-alt">
-                <div className="container">
-                  <div className="section-heading">
-                    <p className="section-kicker">What makes {cityInfo.name} different?</p>
-                    <h2>{project.name} costs in {cityInfo.name}</h2>
-                  </div>
+      {city && cityInfo && (
+        <section className="section section-alt">
+          <div className="container">
+            <div className="section-heading">
+              <p className="section-kicker">What makes {cityInfo.name} different?</p>
+              <h2>{project.name} costs in {cityInfo.name}</h2>
+            </div>
 
-                  <div className="benefits-grid">
-                    <div className="benefit-card">
-                      <h3>Typical contractor day rates</h3>
-                      <p>{cityInfo.contractorDayRate}</p>
-                    </div>
+            <div className="benefits-grid">
+              <div className="benefit-card">
+                <h3>Typical contractor day rates</h3>
+                <p>{cityInfo.contractorDayRate}</p>
+              </div>
 
-                    <div className="benefit-card">
-                      <h3>Typical skip / waste cost</h3>
-                      <p>{cityInfo.skipCost}</p>
-                    </div>
+              <div className="benefit-card">
+                <h3>Typical skip / waste cost</h3>
+                <p>{cityInfo.skipCost}</p>
+              </div>
 
-                    <div className="benefit-card">
-                      <h3>Labour cost position</h3>
-                      <p>
-                        Costs in {cityInfo.name} are typically adjusted by a labour multiplier of{" "}
-                        <strong>{cityInfo.labourMultiplier}</strong> compared with a standard UK baseline.
-                      </p>
-                    </div>
-                  </div>
+              <div className="benefit-card">
+                <h3>Labour cost position</h3>
+                <p>
+                  Costs in {cityInfo.name} are typically adjusted by a labour multiplier of{" "}
+                  <strong>{cityInfo.labourMultiplier}</strong> compared with a standard UK baseline.
+                </p>
+              </div>
+            </div>
 
-                  <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
-                    <p className="section-kicker">Local pricing signals</p>
-                    <h2>Why renovation costs vary in {cityInfo.name}</h2>
-                  </div>
+            <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+              <p className="section-kicker">Local pricing signals</p>
+              <h2>Why renovation costs vary in {cityInfo.name}</h2>
+            </div>
 
-                  <div className="benefits-grid">
-                    <div className="benefit-card">
-                      <h3>Access and logistics</h3>
-                      <p>{cityInfo.accessNotes}</p>
-                    </div>
+            <div className="benefits-grid">
+              <div className="benefit-card">
+                <h3>Access and logistics</h3>
+                <p>{cityInfo.accessNotes}</p>
+              </div>
 
-                    <div className="benefit-card">
-                      <h3>Demand for contractors</h3>
-                      <p>{cityInfo.demandNotes}</p>
-                    </div>
+              <div className="benefit-card">
+                <h3>Demand for contractors</h3>
+                <p>{cityInfo.demandNotes}</p>
+              </div>
 
-                    <div className="benefit-card">
-                      <h3>Planning context</h3>
-                      <p>{cityInfo.planningNotes}</p>
-                    </div>
-                  </div>
+              <div className="benefit-card">
+                <h3>Planning context</h3>
+                <p>{cityInfo.planningNotes}</p>
+              </div>
+            </div>
 
-                  {cityInfo.housingStock?.length > 0 && (
-                    <>
-                      <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
-                        <p className="section-kicker">Housing stock context</p>
-                        <h2>Common property types in {cityInfo.name}</h2>
-                      </div>
-
-                      <div className="benefit-card">
-                        <ul className="content-list">
-                          {cityInfo.housingStock.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </>
-                  )}
-
-                  {cityInfo.commonConstraints?.length > 0 && (
-                    <>
-                      <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
-                        <p className="section-kicker">Typical renovation constraints</p>
-                        <h2>Hidden costs and common issues in {cityInfo.name}</h2>
-                      </div>
-
-                      <div className="benefit-card">
-                        <ul className="content-list">
-                          {cityInfo.commonConstraints.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </>
-                  )}
+            {cityInfo.housingStock?.length > 0 && (
+              <>
+                <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                  <p className="section-kicker">Housing stock context</p>
+                  <h2>Common property types in {cityInfo.name}</h2>
                 </div>
-              </section>
+
+                <div className="benefit-card">
+                  <ul className="content-list">
+                    {cityInfo.housingStock.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
             )}
+
+            {cityInfo.commonConstraints?.length > 0 && (
+              <>
+                <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+                  <p className="section-kicker">Typical renovation constraints</p>
+                  <h2>Hidden costs and common issues in {cityInfo.name}</h2>
+                </div>
+
+                <div className="benefit-card">
+                  <ul className="content-list">
+                    {cityInfo.commonConstraints.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+        {cityInfo.scenarios?.length > 0 && (
+        <>
+          <div className="section-heading left" style={{ marginTop: "36px", marginBottom: "20px" }}>
+            <p className="section-kicker">Local example scenarios</p>
+            <h2>Example {project.name.toLowerCase()} budgets in {cityInfo.name}</h2>
+          </div>
+
+          <div className="benefits-grid">
+            {cityInfo.scenarios.map((scenario) => (
+              <div className="benefit-card" key={scenario.title}>
+                <h3>{scenario.title}</h3>
+                <p><strong>{scenario.propertyType}</strong></p>
+                <p><strong>{scenario.estimate}</strong></p>
+                <p>{scenario.description}</p>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+          </div>
+        </section>
+      )}
 
       {isPillarPage && (
         <section className="section section-alt">
