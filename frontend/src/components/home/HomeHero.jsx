@@ -12,11 +12,10 @@ export default function HomeHero({ estimate }) {
             Use our free UK renovation cost calculator to get quick planning
             estimates for{" "}
             <Link to="/cost/loft-conversion">loft conversions</Link>,{" "}
-            <Link to="/cost/house-extension">house extensions</Link>, garden rooms and
-            kitchen renovations.
-            <Link to="/cost/kitchen-renovation">kitchen renovations</Link>
-
-            {" "}You can also read our{" "}
+            <Link to="/cost/house-extension">house extensions</Link>,{" "}
+            <Link to="/cost/garden-room">garden rooms</Link> and{" "}
+            <Link to="/cost/kitchen-renovation">kitchen renovations</Link>. You can
+            also read our{" "}
             <Link to="/how-much-does-it-cost-to-renovate-a-house-uk">
               full guide to house renovation costs in the UK
             </Link>{" "}
