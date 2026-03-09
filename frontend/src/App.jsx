@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { calculateEstimate } from "./utils/estimate";
-import ScrollToTop from "./components/ScrollToTop.jsx";
 
 import HomeHero from "./components/home/HomeHero";
 import ProjectCategories from "./components/home/ProjectCategories";
