@@ -129,6 +129,8 @@ export const PROJECTS = {
     name: "Loft Conversion",
     intro:
       "Loft conversion costs depend on roof structure, staircase requirements, dormer work, insulation, plastering and the final specification.",
+    cityIntro: (cityName) =>
+      `Loft conversion costs in ${cityName} can vary depending on structural complexity, staircase design, access, labour rates and the type of conversion you choose. This guide gives a practical planning range for homeowners researching likely loft conversion budgets in ${cityName}.`,
     heroImage: loftConversionPremium2,
     heroImageAlt: "Finished loft conversion interior with sloped ceiling and natural light",
     galleryImages: [
@@ -155,7 +157,7 @@ export const PROJECTS = {
       {
         src: loftConversionGamer2,
         alt: "Loft conversion for a gamer with neon lights"
-      },
+      }
     ],
     beforeAfterImages: [
       {
@@ -173,6 +175,58 @@ export const PROJECTS = {
     mid: 45000,
     high: 70000,
     costPerM2: "£1,500 – £2,500 per m²",
+
+    includedItems: [
+      "Structural calculations and strengthening where needed",
+      "Floor reinforcement and steelwork if required",
+      "Roof insulation and plasterboard lining",
+      "Dormer or rooflight installation where included",
+      "New staircase installation",
+      "Electrical and lighting work",
+      "Plastering, joinery and interior finishing"
+    ],
+
+    budgetTiers: [
+      {
+        title: "Budget loft conversion",
+        range: "£25,000–£35,000",
+        text:
+          "Usually suits a simpler rooflight loft conversion with minimal structural alteration and a straightforward internal fit-out."
+      },
+      {
+        title: "Mid-range loft conversion",
+        range: "£35,000–£50,000",
+        text:
+          "Often includes a dormer, a more complete internal finish, better storage solutions and higher overall specification."
+      },
+      {
+        title: "Premium loft conversion",
+        range: "£50,000–£70,000+",
+        text:
+          "Can include larger dormers, more structural work, bespoke joinery, premium finishes and an ensuite bathroom."
+      }
+    ],
+
+    driverCards: [
+      {
+        title: "Type of loft conversion",
+        text:
+          "Rooflight, dormer and hip-to-gable loft conversions vary significantly in cost because they involve different levels of structural and external work.",
+        cityText: (cityName) =>
+          `In ${cityName}, the type of loft conversion can affect cost even more because structural labour, scaffolding and specialist trades are often more expensive.`
+      },
+      {
+        title: "Staircase and layout",
+        text:
+          "The staircase design and how easily it fits into the existing house layout can have a major impact on labour, design complexity and usable floor area."
+      },
+      {
+        title: "Bathrooms and finishes",
+        text:
+          "Adding an ensuite, fitted storage, premium finishes or more complex lighting usually increases the final loft conversion cost."
+      }
+    ],
+
     costFactors: [
       "Roof structure and whether structural steel is needed",
       "Type of loft conversion, such as rooflight, dormer or hip-to-gable",
@@ -224,6 +278,8 @@ export const PROJECTS = {
     name: "House Extension",
     intro:
       "House extension costs vary based on size, foundations, structure, glazing, roof type, internal fit-out and your location.",
+    cityIntro: (cityName) =>
+      `House extension costs in ${cityName} are often influenced by build size, foundation requirements, structure, glazing, labour rates and access conditions. This guide gives a practical planning range for homeowners comparing likely extension budgets in ${cityName}.`,
     heroImage: extension2,
     heroImageAlt: "Large premium rear extension with wide folding doors and active building work",
     galleryImages: [
@@ -250,11 +306,63 @@ export const PROJECTS = {
       {
         src: extensionFuturistic,
         alt: "Futuristic contemporary house extension with dramatic glazing and lighting"
-      },
+      }
     ],
     low: 30000,
     mid: 65000,
     high: 120000,
+
+    includedItems: [
+      "Groundworks and foundations",
+      "Structural walls, framing or steelwork",
+      "Roof construction and weatherproofing",
+      "Windows, doors and glazing",
+      "Insulation and plastering",
+      "Electrical and plumbing first fix and second fix",
+      "Internal finishing and decoration where included"
+    ],
+
+    budgetTiers: [
+      {
+        title: "Budget house extension",
+        range: "£30,000–£50,000",
+        text:
+          "Usually suits a smaller, straightforward rear extension with simpler design choices and a more standard finish."
+      },
+      {
+        title: "Mid-range house extension",
+        range: "£50,000–£80,000",
+        text:
+          "Often includes a larger footprint, better glazing, improved internal finishes and more complex structural work."
+      },
+      {
+        title: "Premium house extension",
+        range: "£80,000–£120,000+",
+        text:
+          "Can include large openings, premium glazing, bespoke design features, higher-end finishes and more extensive structural or landscaping work."
+      }
+    ],
+
+    driverCards: [
+      {
+        title: "Size and structure",
+        text:
+          "The overall size of the extension, the structural design and whether steelwork is needed will strongly influence the final cost.",
+        cityText: (cityName) =>
+          `In ${cityName}, larger or more structural extension projects can become significantly more expensive because labour, engineering input and site logistics often cost more.`
+      },
+      {
+        title: "Foundations and ground conditions",
+        text:
+          "Difficult ground conditions, deeper foundations, drainage complications or nearby trees can all increase the cost of an extension."
+      },
+      {
+        title: "Glazing and internal finish",
+        text:
+          "Large doors, rooflights, premium glazing and higher-end interior finishes can push house extension budgets up quickly."
+      }
+    ],
+
     faqs: [
       {
         q: "How much does a house extension cost in the UK?",
