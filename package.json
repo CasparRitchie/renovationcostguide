@@ -13,6 +13,8 @@
   "dependencies": {
     "dropbox": "^10.34.0",
     "express": "^4.21.2",
+    "multer": "^2.1.1",
+    "pdf-parse": "^2.4.5",
     "resend": "^6.9.3"
   }
 }
