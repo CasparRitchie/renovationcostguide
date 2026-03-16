@@ -1,6 +1,7 @@
 const express = require("express");
 const multer = require("multer");
-const pdfParse = require("pdf-parse");
+const pdfParseModule = require("pdf-parse");
+const pdfParse = pdfParseModule.default || pdfParseModule;
 const { analyseQuote } = require("../services/quoteCheck/analyseQuote");
 
 const router = express.Router();
