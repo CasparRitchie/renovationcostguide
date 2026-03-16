@@ -153,8 +153,7 @@ function buildAssessment(common, projectChecks) {
     confidence: "medium",
     summary:
       "This quote is difficult to assess confidently because several important details appear unclear, missing or only broadly described.",
-    };
-  }
+  };
 }
 
 function buildCTA(assessment, common, projectChecks, rangeCheck) {
