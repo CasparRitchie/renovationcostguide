@@ -101,7 +101,9 @@ router.post("/analyse", upload.single("file"), async (req, res) => {
       success: true,
       ...result,
     });
-  } catch (error) {
+    } catch (error) {
+    console.error("quote-check analyse error:", error);
+
     const code =
       error?.message === "UNSUPPORTED_FILE_TYPE"
         ? "UNSUPPORTED_FILE_TYPE"
@@ -110,7 +112,7 @@ router.post("/analyse", upload.single("file"), async (req, res) => {
     const message =
       code === "UNSUPPORTED_FILE_TYPE"
         ? "Please upload a PDF, JPG or PNG file."
-        : "Something went wrong while analysing the quote.";
+        : error?.message || "Something went wrong while analysing the quote.";
 
     return res.status(500).json({
       success: false,
