@@ -3,6 +3,7 @@ const multer = require("multer");
 const { CanvasFactory } = require("pdf-parse/worker");
 const { PDFParse } = require("pdf-parse");
 const { analyseQuote } = require("../services/quoteCheck/analyseQuote");
+const Tesseract = require("tesseract.js");
 
 const router = express.Router();
 
@@ -81,6 +82,14 @@ router.post("/analyse", upload.single("file"), async (req, res) => {
       if (typeof parser.destroy === "function") {
         await parser.destroy();
       }
+    } else if (
+      req.file.mimetype === "image/jpeg" ||
+      req.file.mimetype === "image/png"
+    ) {
+      const ocrResult = await Tesseract.recognize(req.file.buffer, "eng");
+      extractedText = ocrResult?.data?.text || "";
+
+      console.log("quote-check OCR extracted text length:", extractedText.length);
     } else {
       extractedText = "";
     }
@@ -91,7 +100,7 @@ router.post("/analyse", upload.single("file"), async (req, res) => {
         error: {
           code: "TEXT_EXTRACTION_FAILED",
           message:
-            "We could not extract enough text from this file. Text-based PDFs will work best in v1.",
+            "We could not extract enough text from this file. Text-based PDFs work best, and clear screenshots or images of typed quotes may also work.",
         },
       });
     }
