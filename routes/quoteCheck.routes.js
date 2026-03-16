@@ -1,7 +1,7 @@
 const express = require("express");
 const multer = require("multer");
-const pdfParseModule = require("pdf-parse");
-const pdfParse = pdfParseModule.default || pdfParseModule;
+const { CanvasFactory } = require("pdf-parse/worker");
+const { PDFParse } = require("pdf-parse");
 const { analyseQuote } = require("../services/quoteCheck/analyseQuote");
 
 const router = express.Router();
@@ -68,8 +68,19 @@ router.post("/analyse", upload.single("file"), async (req, res) => {
     let extractedText = "";
 
     if (req.file.mimetype === "application/pdf") {
-      const pdfData = await pdfParse(req.file.buffer);
-      extractedText = pdfData.text || "";
+      const parser = new PDFParse({
+        data: req.file.buffer,
+        CanvasFactory,
+      });
+
+      const result = await parser.getText();
+      extractedText = result?.text || "";
+
+      console.log("quote-check extracted text length:", extractedText.length);
+
+      if (typeof parser.destroy === "function") {
+        await parser.destroy();
+      }
     } else {
       extractedText = "";
     }
