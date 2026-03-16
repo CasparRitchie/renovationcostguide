@@ -38,6 +38,8 @@ export const PROJECTS = {
     name: "Kitchen Renovation",
     intro:
       "Kitchen renovation costs vary depending on layout changes, cabinetry quality, appliances, labour and finish level.",
+    cityIntro: (cityName) =>
+      `Kitchen renovation costs in ${cityName} can vary significantly depending on cabinetry quality, worktops, appliances, labour rates, access and whether the layout is being changed.`,
     heroImage: kitchenRenovationMain,
     heroImageAlt: "Modern kitchen renovation with fitted units and worktops",
     galleryImages: [
@@ -61,6 +63,56 @@ export const PROJECTS = {
     low: 8000,
     mid: 18000,
     high: 30000,
+
+    includedItems: [
+      "Removal of the existing kitchen",
+      "Cabinetry and storage installation",
+      "Worktops and splashbacks",
+      "Sink, taps and plumbing adjustments",
+      "Electrical changes for appliances and lighting",
+      "Flooring, decorating and final finishing",
+      "Appliance installation where included"
+    ],
+
+    budgetTiers: [
+      {
+        title: "Budget kitchen renovation",
+        range: "£8,000–£12,000",
+        text:
+          "Usually suits a simpler replacement kitchen with standard units, laminate worktops and limited layout changes."
+      },
+      {
+        title: "Mid-range kitchen renovation",
+        range: "£12,000–£22,000",
+        text:
+          "Often includes better cabinetry, improved worktops, upgraded appliances and some plumbing or electrical reconfiguration."
+      },
+      {
+        title: "Premium kitchen renovation",
+        range: "£22,000–£30,000+",
+        text:
+          "Can include bespoke cabinetry, stone worktops, premium appliances, island units and higher-end finishing throughout."
+      }
+    ],
+
+    driverCards: [
+      {
+        title: "Cabinetry and storage",
+        text:
+          "Cabinet quality, internal storage features and bespoke joinery often make up a large part of the total kitchen budget."
+      },
+      {
+        title: "Worktops and appliances",
+        text:
+          "Quartz, stone and premium appliances can raise the cost significantly compared with standard mid-market choices."
+      },
+      {
+        title: "Layout and services",
+        text:
+          "Moving sinks, ovens, lighting or extractor positions usually increases plumbing, electrical and installation costs."
+      }
+    ],
+
     faqs: [
       {
         q: "How much does a kitchen renovation cost in the UK?",
@@ -219,6 +271,8 @@ export const PROJECTS = {
     name: "Bathroom Renovation",
     intro:
       "Bathroom renovation costs depend on tiling, sanitaryware, plumbing changes, waterproofing, labour and the level of finish.",
+    cityIntro: (cityName) =>
+      `Bathroom renovation costs in ${cityName} are often affected by labour rates, access, property type, plumbing complexity and the level of finish. This guide gives a practical planning range for homeowners comparing likely project budgets in ${cityName}.`,
     heroImage: loftConversionBathroom,
     heroImageAlt: "Modern bathroom renovation with shower and fitted finishes",
     galleryImages: [
@@ -233,11 +287,63 @@ export const PROJECTS = {
       {
         src: bathroomSlateMetallic,
         alt: "Bathroom renovation with dark slate tiles and metallic finishes"
-      },
+      }
     ],
     low: 5000,
     mid: 12000,
     high: 25000,
+
+    includedItems: [
+      "Removal of the existing bathroom suite and finishes",
+      "Plumbing adjustments for bath, shower, basin or toilet",
+      "Waterproofing and preparation of walls and floors",
+      "Wall and floor tiling",
+      "Installation of sanitaryware and brassware",
+      "Lighting, extractor fan and electrical finishing",
+      "Decoration, sealing and final finishing"
+    ],
+
+    budgetTiers: [
+      {
+        title: "Budget bathroom renovation",
+        range: "£5,000–£8,000",
+        text:
+          "Usually suits a smaller bathroom where the layout remains broadly the same and the specification is fairly standard."
+      },
+      {
+        title: "Mid-range bathroom renovation",
+        range: "£8,000–£15,000",
+        text:
+          "Often includes better-quality fittings, more extensive tiling, improved lighting, vanity storage and some plumbing or electrical upgrades."
+      },
+      {
+        title: "Premium bathroom renovation",
+        range: "£15,000–£25,000+",
+        text:
+          "Can include layout changes, walk-in showers, freestanding baths, premium brassware, underfloor heating and higher-end finishes throughout."
+      }
+    ],
+
+    driverCards: [
+      {
+        title: "Plumbing and layout changes",
+        text:
+          "Costs usually rise if the toilet, bath, shower or basin needs moving, because extra plumbing work adds labour and complexity.",
+        cityText: (cityName) =>
+          `Costs in ${cityName} often rise further if the layout changes, because plumbing labour and coordination are usually more expensive in larger cities.`
+      },
+      {
+        title: "Tiling and waterproofing",
+        text:
+          "Full-height tiling, tanking, premium tiles and more detailed finishing can significantly affect the total budget."
+      },
+      {
+        title: "Sanitaryware and fittings",
+        text:
+          "Bathrooms vary hugely in cost depending on whether you choose standard suites or premium taps, showers, baths and fitted furniture."
+      }
+    ],
+
     faqs: [
       {
         q: "How much does a bathroom renovation cost in the UK?",
