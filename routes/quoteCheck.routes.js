@@ -4,6 +4,7 @@ const { CanvasFactory } = require("pdf-parse/worker");
 const { PDFParse } = require("pdf-parse");
 const { analyseQuote } = require("../services/quoteCheck/analyseQuote");
 const Tesseract = require("tesseract.js");
+const { cleanExtractedText } = require("../services/quoteCheck/rules/commonRules");
 
 const router = express.Router();
 
@@ -94,6 +95,9 @@ router.post("/analyse", upload.single("file"), async (req, res) => {
       extractedText = "";
     }
 
+    extractedText = cleanExtractedText(extractedText);
+    console.log("quote-check cleaned text length:", extractedText.length);
+
     if (!extractedText || extractedText.trim().length < 20) {
       return res.status(422).json({
         success: false,
@@ -118,10 +122,10 @@ router.post("/analyse", upload.single("file"), async (req, res) => {
       notes,
     });
 
-    return res.json({
-      success: true,
-      ...result,
-    });
+      return res.json({
+        success: true,
+        ...result,
+      });
     } catch (error) {
     console.error("quote-check analyse error:", error);
 
