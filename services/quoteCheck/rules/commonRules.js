@@ -1,11 +1,18 @@
 const COMMON_RULES = {
-  totals: [
+    totals: [
     "total",
     "grand total",
     "total cost",
-    "total price",
+    "total estimated cost",
+    "estimated total cost",
+    "overall cost",
+    "overall price",
     "quote total",
     "quotation total",
+    "final total",
+    "total amount",
+    "project total",
+    "estimated cost"
   ],
   vat: [
     "vat",
@@ -70,8 +77,6 @@ function detectMoneyValues(rawText = "") {
 }
 
 function detectTotal(rawText = "", fallback = "") {
-  const moneyValues = detectMoneyValues(rawText);
-
   if (fallback && String(fallback).trim()) {
     const numeric = String(fallback).replace(/[^\d.]/g, "");
     if (numeric) {
@@ -79,7 +84,58 @@ function detectTotal(rawText = "", fallback = "") {
     }
   }
 
-  return moneyValues.length > 0 ? moneyValues[moneyValues.length - 1] : null;
+  const lines = rawText
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const totalPatterns = [
+    /(?:grand total|total estimated cost|estimated total cost|overall cost|overall price|quote total|quotation total|final total|total amount|project total|total cost|estimated cost|total)[^\d£$]*([£$]\s?\d[\d,]*(?:\.\d{1,2})?)/i,
+    /([£$]\s?\d[\d,]*(?:\.\d{1,2})?)[^\n]*(?:grand total|total estimated cost|estimated total cost|overall cost|overall price|quote total|quotation total|final total|total amount|project total|total cost|estimated cost|total)/i,
+  ];
+
+  for (const line of lines) {
+    for (const pattern of totalPatterns) {
+      const match = line.match(pattern);
+      if (match && match[1]) {
+        return normaliseMoney(match[1]);
+      }
+    }
+  }
+
+  // fallback: search across joined text in case OCR split oddly
+  const joined = lines.join(" ");
+  for (const pattern of totalPatterns) {
+    const match = joined.match(pattern);
+    if (match && match[1]) {
+      return normaliseMoney(match[1]);
+    }
+  }
+
+  // final fallback: largest detected amount
+  const moneyValues = detectMoneyValues(rawText);
+  if (!moneyValues.length) return null;
+
+  const parsed = moneyValues
+    .map((value) => ({
+      raw: value,
+      num: parseFloat(String(value).replace(/[^\d.]/g, "")),
+    }))
+    .filter((item) => !Number.isNaN(item.num))
+    .sort((a, b) => b.num - a.num);
+
+  return parsed.length ? normaliseMoney(parsed[0].raw) : null;
+}
+
+function normaliseMoney(value) {
+  const symbol = String(value).includes("$") ? "$" : "£";
+  const numeric = String(value).replace(/[^\d.]/g, "");
+  if (!numeric) return null;
+
+  return `${symbol}${Number(numeric).toLocaleString("en-GB", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  })}`;
 }
 
 function assessItemisation(rawText = "") {
