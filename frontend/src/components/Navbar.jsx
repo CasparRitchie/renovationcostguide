@@ -23,6 +23,7 @@ export default function Navbar() {
           <Link to="/cost/loft-conversion">Loft Costs</Link>
           <Link to="/cost/house-extension">Extension Costs</Link>
           <Link to="/cost/kitchen-renovation">Kitchen Costs</Link>
+          <Link to="/quote-check">Quote Check</Link>
           <a href={isHome ? "#quotes" : "/#quotes"}>Get Quotes</a>
         </nav>
       </div>
