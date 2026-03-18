@@ -7,16 +7,15 @@ export default function Navbar() {
   return (
     <header className="topbar">
       <div className="container topbar-inner">
-        <div className="brand">
+        <Link to="/" className="brand" style={{ textDecoration: "none", color: "inherit" }}>
           <span className="brand-mark">RCG</span>
           <div>
             <div className="brand-name">Renovation Cost Guide</div>
             <div className="brand-sub">UK renovation planning estimates</div>
           </div>
-        </div>
+        </Link>
 
         <nav className="topnav">
-          <Link to="/">Home</Link>
           <Link to="/how-much-does-it-cost-to-renovate-a-house-uk">
             Renovation Guide
           </Link>
