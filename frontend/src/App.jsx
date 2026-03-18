@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { calculateEstimate } from "./utils/estimate";
 
+import Navbar from "./components/Navbar";
 import HomeHero from "./components/home/HomeHero";
 import ProjectCategories from "./components/home/ProjectCategories";
 import CalculatorSection from "./components/home/CalculatorSection";
@@ -83,24 +84,7 @@ export default function App() {
 
   return (
     <div className="site-shell">
-      <header className="topbar">
-        <div className="container topbar-inner">
-          <div className="brand">
-            <span className="brand-mark">RCG</span>
-            <div>
-              <div className="brand-name">Renovation Cost Guide</div>
-              <div className="brand-sub">UK renovation planning estimates</div>
-            </div>
-          </div>
-
-          <nav className="topnav">
-            <a href="#categories">Project Types</a>
-            <a href="#calculator">Calculator</a>
-            <a href="#guides">Guides</a>
-            <a href="#quotes">Get Quotes</a>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       <HomeHero estimate={estimate} />
 
