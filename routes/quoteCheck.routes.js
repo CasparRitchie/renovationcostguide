@@ -1,152 +1,152 @@
-const express = require("express");
-const multer = require("multer");
-const { CanvasFactory } = require("pdf-parse/worker");
-const { PDFParse } = require("pdf-parse");
-const { analyseQuote } = require("../services/quoteCheck/analyseQuote");
-const Tesseract = require("tesseract.js");
-const { cleanExtractedText } = require("../services/quoteCheck/rules/commonRules");
+  const express = require("express");
+  const multer = require("multer");
+  const { CanvasFactory } = require("pdf-parse/worker");
+  const { PDFParse } = require("pdf-parse");
+  const { analyseQuote } = require("../services/quoteCheck/analyseQuote");
+  const Tesseract = require("tesseract.js");
+  const { cleanExtractedText } = require("../services/quoteCheck/rules/commonRules");
 
-const router = express.Router();
+  const router = express.Router();
 
-const upload = multer({
-  storage: multer.memoryStorage(),
-  limits: {
-    fileSize: 10 * 1024 * 1024,
-  },
-  fileFilter: (req, file, cb) => {
-    const allowed = [
-      "application/pdf",
-      "image/jpeg",
-      "image/png",
-    ];
+  const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+      fileSize: 10 * 1024 * 1024,
+    },
+    fileFilter: (req, file, cb) => {
+      const allowed = [
+        "application/pdf",
+        "image/jpeg",
+        "image/png",
+      ];
 
-    if (!allowed.includes(file.mimetype)) {
-      return cb(new Error("UNSUPPORTED_FILE_TYPE"));
-    }
-
-    cb(null, true);
-  },
-});
-
-router.get("/health", (_req, res) => {
-  res.json({
-    ok: true,
-    service: "quote-check",
-  });
-});
-
-router.post("/analyse", upload.single("file"), async (req, res) => {
-  try {
-    const {
-      projectType,
-      location,
-      propertyType = "",
-      quotedTotal = "",
-      quoteCount = "",
-      mainConcern = "",
-      notes = "",
-    } = req.body;
-
-    if (!req.file) {
-      return res.status(400).json({
-        success: false,
-        error: {
-          code: "NO_FILE_UPLOADED",
-          message: "Please upload a PDF, JPG or PNG file.",
-        },
-      });
-    }
-
-    if (!projectType) {
-      return res.status(400).json({
-        success: false,
-        error: {
-          code: "PROJECT_TYPE_INVALID",
-          message: "Please select a valid project type.",
-        },
-      });
-    }
-
-    let extractedText = "";
-
-    if (req.file.mimetype === "application/pdf") {
-      const parser = new PDFParse({
-        data: req.file.buffer,
-        CanvasFactory,
-      });
-
-      const result = await parser.getText();
-      extractedText = result?.text || "";
-
-      console.log("quote-check extracted text length:", extractedText.length);
-
-      if (typeof parser.destroy === "function") {
-        await parser.destroy();
+      if (!allowed.includes(file.mimetype)) {
+        return cb(new Error("UNSUPPORTED_FILE_TYPE"));
       }
-    } else if (
-      req.file.mimetype === "image/jpeg" ||
-      req.file.mimetype === "image/png"
-    ) {
-      const ocrResult = await Tesseract.recognize(req.file.buffer, "eng");
-      extractedText = ocrResult?.data?.text || "";
 
-      console.log("quote-check OCR extracted text length:", extractedText.length);
-    } else {
-      extractedText = "";
-    }
+      cb(null, true);
+    },
+  });
 
-    extractedText = cleanExtractedText(extractedText);
-    console.log("quote-check cleaned text length:", extractedText.length);
+  router.get("/health", (_req, res) => {
+    res.json({
+      ok: true,
+      service: "quote-check",
+    });
+  });
 
-    if (!extractedText || extractedText.trim().length < 20) {
-      return res.status(422).json({
+  router.post("/analyse", upload.single("file"), async (req, res) => {
+    try {
+      const {
+        projectType,
+        location,
+        propertyType = "",
+        quotedTotal = "",
+        quoteCount = "",
+        mainConcern = "",
+        notes = "",
+      } = req.body;
+
+      if (!req.file) {
+        return res.status(400).json({
+          success: false,
+          error: {
+            code: "NO_FILE_UPLOADED",
+            message: "Please upload a PDF, JPG or PNG file.",
+          },
+        });
+      }
+
+      if (!projectType) {
+        return res.status(400).json({
+          success: false,
+          error: {
+            code: "PROJECT_TYPE_INVALID",
+            message: "Please select a valid project type.",
+          },
+        });
+      }
+
+      let extractedText = "";
+
+      if (req.file.mimetype === "application/pdf") {
+        const parser = new PDFParse({
+          data: req.file.buffer,
+          CanvasFactory,
+        });
+
+        const result = await parser.getText();
+        extractedText = result?.text || "";
+
+        console.log("quote-check extracted text length:", extractedText.length);
+
+        if (typeof parser.destroy === "function") {
+          await parser.destroy();
+        }
+      } else if (
+        req.file.mimetype === "image/jpeg" ||
+        req.file.mimetype === "image/png"
+      ) {
+        const ocrResult = await Tesseract.recognize(req.file.buffer, "eng");
+        extractedText = ocrResult?.data?.text || "";
+
+        console.log("quote-check OCR extracted text length:", extractedText.length);
+      } else {
+        extractedText = "";
+      }
+
+      extractedText = cleanExtractedText(extractedText);
+      console.log("quote-check cleaned text length:", extractedText.length);
+
+      if (!extractedText || extractedText.trim().length < 20) {
+        return res.status(422).json({
+          success: false,
+          error: {
+            code: "TEXT_EXTRACTION_FAILED",
+            message:
+              "We could not extract enough text from this file. Text-based PDFs work best, and clear screenshots or images of typed quotes may also work.",
+          },
+        });
+      }
+
+      const result = analyseQuote({
+        extractedText,
+        fileName: req.file.originalname,
+        fileType: req.file.mimetype,
+        projectType,
+        location,
+        propertyType,
+        quotedTotalInput: quotedTotal,
+        quoteCount,
+        mainConcern,
+        notes,
+      });
+
+        return res.json({
+          success: true,
+          ...result,
+        });
+      } catch (error) {
+      console.error("quote-check analyse error:", error);
+
+      const code =
+        error?.message === "UNSUPPORTED_FILE_TYPE"
+          ? "UNSUPPORTED_FILE_TYPE"
+          : "ANALYSIS_FAILED";
+
+      const message =
+        code === "UNSUPPORTED_FILE_TYPE"
+          ? "Please upload a PDF, JPG or PNG file."
+          : error?.message || "Something went wrong while analysing the quote.";
+
+      return res.status(500).json({
         success: false,
         error: {
-          code: "TEXT_EXTRACTION_FAILED",
-          message:
-            "We could not extract enough text from this file. Text-based PDFs work best, and clear screenshots or images of typed quotes may also work.",
+          code,
+          message,
         },
       });
     }
+  });
 
-    const result = analyseQuote({
-      extractedText,
-      fileName: req.file.originalname,
-      fileType: req.file.mimetype,
-      projectType,
-      location,
-      propertyType,
-      quotedTotalInput: quotedTotal,
-      quoteCount,
-      mainConcern,
-      notes,
-    });
-
-      return res.json({
-        success: true,
-        ...result,
-      });
-    } catch (error) {
-    console.error("quote-check analyse error:", error);
-
-    const code =
-      error?.message === "UNSUPPORTED_FILE_TYPE"
-        ? "UNSUPPORTED_FILE_TYPE"
-        : "ANALYSIS_FAILED";
-
-    const message =
-      code === "UNSUPPORTED_FILE_TYPE"
-        ? "Please upload a PDF, JPG or PNG file."
-        : error?.message || "Something went wrong while analysing the quote.";
-
-    return res.status(500).json({
-      success: false,
-      error: {
-        code,
-        message,
-      },
-    });
-  }
-});
-
-module.exports = router;
+  module.exports = router;
