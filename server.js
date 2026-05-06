@@ -26,6 +26,14 @@ app.use("/api/lead", leadRoutes);
 app.use("/api/quote-check", quoteCheckRoutes);
 app.use("/api/garden-design", gardenDesignRoutes);
 
+app.get("/api/health", (_req, res) => {
+  res.json({
+    ok: true,
+    service: "renovation-cost-guide",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 const distPath = path.join(__dirname, "frontend", "dist");
 app.use(express.static(distPath));
 
