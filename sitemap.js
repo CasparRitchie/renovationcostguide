@@ -55,6 +55,16 @@ const staticPages = [
     changefreq: "weekly",
   },
   {
+    path: "/quote-check",
+    priority: "0.9",
+    changefreq: "weekly",
+  },
+  {
+    path: "/garden-design-ideas",
+    priority: "0.8",
+    changefreq: "weekly",
+  },
+  {
     path: "/how-much-does-it-cost-to-renovate-a-house-uk",
     priority: "0.9",
     changefreq: "weekly",
